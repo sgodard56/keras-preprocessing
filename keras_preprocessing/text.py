@@ -237,7 +237,7 @@ class Tokenizer(object):
             sorted_voc = []
         else:
             sorted_voc = [self.oov_token]
-        sorted_voc.extend(wc[0] for wc in wcounts)
+        sorted_voc.extend(wc[0] for wc in wcounts if wc[0] != self.oov_token)
 
         # note that index 0 is reserved, never assigned to an existing word
         self.word_index = dict(
